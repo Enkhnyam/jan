@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy custom server configuration (replaces default)
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Copy website files
 COPY . /usr/share/nginx/html
@@ -10,18 +10,16 @@ COPY . /usr/share/nginx/html
 RUN rm -f /usr/share/nginx/html/Dockerfile \
           /usr/share/nginx/html/docker-compose.yml \
           /usr/share/nginx/html/nginx.conf \
+          /usr/share/nginx/html/default.conf \
           /usr/share/nginx/html/README.md \
           /usr/share/nginx/html/.gitignore
 
-# Create necessary directories
-RUN mkdir -p /tmp/nginx
-
-# Health check
+# Health check (try both ports)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:80/health || wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
 
-# Expose port
-EXPOSE 8080
+# Expose ports
+EXPOSE 80 8080
 
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]

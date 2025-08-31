@@ -114,19 +114,29 @@ docker-compose -f docker-compose.yml up -d
    - Branch: `main` oder gewünschter Branch
    - Build Pack: `Dockerfile`
 
-2. **Environment Variables** (optional):
-   ```
-   NGINX_HOST=your-domain.com
-   NGINX_PORT=8080
-   ```
-
-3. **Port Configuration**:
-   - Internal Port: `8080`
+2. **Port Configuration**:
+   - **Wichtig**: Container lauscht sowohl auf Port 80 als auch 8080
+   - Coolify kann entweder Port 80 oder 8080 verwenden
    - External Port: `80` oder `443` (mit SSL)
 
-4. **Health Check**:
+3. **Health Check**:
    - Path: `/health`
    - Interval: 30s
+   - **Automatisch**: Health Check funktioniert auf beiden Ports (80 und 8080)
+
+4. **Environment Variables** (optional):
+   ```
+   # Keine speziellen Variablen erforderlich
+   NGINX_HOST=your-domain.com
+   ```
+
+### Troubleshooting Coolify
+
+Falls das Deployment fehlschlägt:
+
+1. **Health Check Issues**: Der Container unterstützt sowohl Port 80 als auch 8080
+2. **Nginx Config**: Verwendet Standard nginx.conf mit custom server block
+3. **Container Logs**: Prüfen Sie die Logs in Coolify für detaillierte Fehlerinfos
 
 ### Manuelles Deployment
 
