@@ -262,7 +262,8 @@ style.textContent = `
     
     .navbar.scrolled {
         background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
     }
     
     .navbar {

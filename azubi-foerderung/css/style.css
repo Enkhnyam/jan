@@ -12,8 +12,8 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #1f2937;
-    background-color: #ffffff;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
 }
 
@@ -35,18 +35,50 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Color Variables - Professional & Trustworthy */
+/* Professional Color System - Accessibility First */
 :root {
-    --primary-blue: #1e40af;        /* Deeper, more professional blue */
-    --primary-green: #059669;       /* More sophisticated green */
-    --accent-orange: #ea580c;       /* Warmer, more trustworthy orange */
-    --accent-navy: #1e3a8a;         /* Professional navy for contrast */
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
-    --bg-light: #f8fafc;            /* Softer background */
-    --bg-gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-navy) 100%);
-    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* Primary Brand Colors */
+    --primary-dark: #1e293b;        /* Professional dark blue-gray */
+    --primary-medium: #334155;      /* Medium blue-gray */
+    --primary-light: #64748b;       /* Light blue-gray */
+    
+    /* Accent Colors */
+    --accent-primary: #2563eb;      /* Professional blue for CTAs */
+    --accent-success: #059669;      /* Success green */
+    --accent-warning: #d97706;      /* Warning orange */
+    --accent-danger: #dc2626;       /* Error red */
+    
+    /* Text Colors - High Contrast */
+    --text-primary: #0f172a;        /* Primary text - very dark */
+    --text-secondary: #374151;      /* Secondary text - dark gray */
+    --text-tertiary: #6b7280;       /* Tertiary text - medium gray */
+    --text-inverse: #ffffff;        /* White text for dark backgrounds */
+    
+    /* Background Colors */
+    --bg-primary: #ffffff;          /* Primary background - pure white */
+    --bg-secondary: #f8fafc;        /* Secondary background - very light gray */
+    --bg-tertiary: #f1f5f9;         /* Tertiary background - light gray */
+    --bg-dark: var(--primary-dark); /* Dark background */
+    
+    /* Interactive States */
+    --hover-light: #f1f5f9;         /* Light hover state */
+    --hover-dark: #0f172a;          /* Dark hover state */
+    --focus-ring: #3b82f6;          /* Focus ring color */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent-primary) 0%, #1d4ed8 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Borders */
+    --border-light: #e2e8f0;        /* Light border */
+    --border-medium: #cbd5e1;       /* Medium border */
+    --border-dark: #94a3b8;         /* Dark border */
 }
 
 /* Navigation */
@@ -56,7 +88,7 @@ p {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-light);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -77,7 +109,7 @@ p {
     gap: 8px;
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--primary-blue);
+    color: var(--primary-dark);
 }
 
 .logo-emoji {
@@ -93,27 +125,28 @@ p {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 0.5rem 0;
 }
 
 .nav-link:hover {
-    color: var(--primary-blue);
+    color: var(--accent-primary);
 }
 
 .cta-nav {
-    background: var(--bg-gradient);
-    color: white !important;
+    background: var(--gradient-primary);
+    color: var(--text-inverse) !important;
     padding: 0.75rem 1.5rem !important;
     border-radius: 50px;
     transition: all 0.3s ease;
 }
 
 .cta-nav:hover {
+    background: var(--gradient-accent);
     transform: translateY(-2px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
 }
 
 .mobile-menu-toggle {
@@ -129,7 +162,7 @@ p {
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--text-dark);
+    background: var(--text-primary);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -137,8 +170,8 @@ p {
 
 /* Hero Section */
 .hero {
-    background: var(--bg-gradient);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
     padding: 120px 0 80px;
     text-align: center;
     position: relative;
@@ -206,8 +239,8 @@ p {
 /* Buttons */
 .cta-button {
     display: inline-block;
-    background: var(--accent-orange);
-    color: white;
+    background: var(--accent-primary);
+    color: var(--text-inverse);
     padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
@@ -223,26 +256,31 @@ p {
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    background: #ea580c;
+    box-shadow: var(--shadow-xl);
+    background: #1d4ed8;
 }
 
 .primary-cta {
-    background: var(--accent-orange);
+    background: var(--accent-primary);
+}
+
+.primary-cta:hover {
+    background: #1d4ed8;
 }
 
 .secondary-cta {
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--primary-blue) !important;
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    background: transparent;
+    color: var(--text-inverse) !important;
+    border: 2px solid var(--text-inverse);
     backdrop-filter: blur(10px);
 }
 
 .secondary-cta:hover {
-    background: white;
-    color: var(--accent-navy) !important;
+    background: var(--text-inverse);
+    color: var(--primary-dark) !important;
+    border: 2px solid var(--text-inverse);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
 }
 
 .large-cta {
@@ -253,14 +291,14 @@ p {
 /* Problem Section */
 .problem {
     padding: 80px 0;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
 }
 
 .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .section-text {
@@ -268,17 +306,18 @@ p {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 3rem;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
 .example-card {
-    background: white;
+    background: var(--bg-primary);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
     max-width: 600px;
     margin: 0 auto;
+    border: 1px solid var(--border-light);
 }
 
 .example-person {
@@ -295,20 +334,20 @@ p {
 .example-info h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .example-result {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--accent-success);
     margin: 0;
 }
 
 /* Process Section */
 .process {
     padding: 80px 0;
-    background: white;
+    background: var(--bg-primary);
 }
 
 .process-steps {
@@ -324,15 +363,17 @@ p {
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
 }
 
 .process-step:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-medium);
 }
 
 .step-number {
@@ -341,8 +382,8 @@ p {
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: var(--bg-gradient);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
     border-radius: 50%;
     font-size: 1.5rem;
     font-weight: 700;
@@ -352,11 +393,11 @@ p {
 .step-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .step-content p {
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin: 0;
     line-height: 1.6;
 }
@@ -364,7 +405,7 @@ p {
 /* About Section */
 .about {
     padding: 80px 0;
-    background: var(--bg-light);
+    background: var(--bg-secondary);
 }
 
 .about-content {
@@ -379,7 +420,7 @@ p {
 
 .about-text p {
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
@@ -398,7 +439,7 @@ p {
 
 .check-icon {
     font-size: 1.2rem;
-    color: var(--primary-green);
+    color: var(--accent-success);
     flex-shrink: 0;
 }
 
@@ -411,15 +452,16 @@ p {
 .placeholder-image {
     width: 200px;
     height: 200px;
-    background: var(--bg-gradient);
+    background: var(--gradient-primary);
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--text-inverse);
     text-align: center;
     font-weight: 600;
+    box-shadow: var(--shadow-lg);
 }
 
 .placeholder-emoji {
@@ -430,7 +472,7 @@ p {
 /* Testimonials Section */
 .testimonials {
     padding: 80px 0;
-    background: white;
+    background: var(--bg-primary);
 }
 
 .testimonials-grid {
@@ -441,15 +483,17 @@ p {
 }
 
 .testimonial-card {
-    background: var(--bg-light);
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
 }
 
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-medium);
 }
 
 .testimonial-content {
@@ -459,7 +503,7 @@ p {
 .testimonial-content p {
     font-size: 1.1rem;
     font-style: italic;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin: 0;
     line-height: 1.6;
 }
@@ -478,20 +522,20 @@ p {
 .author-info h4 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
 .author-info p {
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--text-secondary);
     margin: 0;
 }
 
 /* Final CTA Section */
 .final-cta {
     padding: 80px 0;
-    background: var(--bg-gradient);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
     text-align: center;
 }
 
@@ -517,8 +561,8 @@ p {
 
 /* Footer */
 .footer {
-    background: var(--text-dark);
-    color: white;
+    background: var(--bg-dark);
+    color: var(--text-inverse);
     padding: 60px 0 30px;
 }
 
@@ -555,6 +599,10 @@ p {
     color: #25d366 !important;
 }
 
+.whatsapp-link:hover {
+    color: #128c7e !important;
+}
+
 .footer-logo {
     display: flex;
     align-items: center;
@@ -588,6 +636,7 @@ p {
         padding-top: 2rem;
         transition: left 0.3s ease;
         gap: 1rem;
+        border-top: 1px solid var(--border-light);
     }
 
     .nav-menu.active {
@@ -731,8 +780,14 @@ p {
 /* Focus styles for accessibility */
 .cta-button:focus,
 .nav-link:focus {
-    outline: 2px solid var(--accent-orange);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
+}
+
+.mobile-menu-toggle:focus {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Print styles */
@@ -743,12 +798,17 @@ p {
     }
     
     .hero {
-        background: white;
-        color: black;
+        background: var(--bg-primary);
+        color: var(--text-primary);
         padding: 20px 0;
     }
     
     .section-title {
-        color: black;
+        color: var(--text-primary);
+    }
+    
+    * {
+        color: var(--text-primary) !important;
+        background: var(--bg-primary) !important;
     }
 }
