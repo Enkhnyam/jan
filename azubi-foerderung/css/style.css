@@ -269,18 +269,15 @@ p {
 }
 
 .secondary-cta {
-    background: transparent;
     color: var(--text-inverse) !important;
     border: 2px solid var(--text-inverse);
     backdrop-filter: blur(10px);
 }
 
 .secondary-cta:hover {
-    background: var(--text-inverse);
-    color: var(--primary-dark) !important;
     border: 2px solid var(--text-inverse);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
+    /*box-shadow: var(--shadow-xl); */
 }
 
 .large-cta {
@@ -605,6 +602,7 @@ p {
     width: 180px;
     height: 180px;
     object-fit: cover;
+    object-position: 70% 50%; /* Shift image left (lower % = more left) */
     border-radius: 50%;
     border: 3px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
