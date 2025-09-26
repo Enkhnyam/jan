@@ -444,29 +444,10 @@ p {
 }
 
 .about-image {
-    order: 1;
     display: flex;
     justify-content: center;
-}
-
-.placeholder-image {
-    width: 200px;
-    height: 200px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: var(--text-inverse);
-    text-align: center;
-    font-weight: 600;
-    box-shadow: var(--shadow-lg);
-}
-
-.placeholder-emoji {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
+    width: 100%;
 }
 
 /* Testimonials Section */
@@ -617,6 +598,16 @@ p {
     padding-top: 2rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 /* Responsive Design */
